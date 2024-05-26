@@ -1,6 +1,6 @@
 namespace Loyality.Domain.Dtos.Ocr;
 
-public class OcrResponse
+public class OcrResult
 {
-    public string Result { get; set; }
+    public string? Result { get; set; }
 }

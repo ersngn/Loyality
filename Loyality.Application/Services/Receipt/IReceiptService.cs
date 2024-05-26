@@ -1,6 +1,8 @@
+using Loyality.Domain.Dtos.Receipt;
+
 namespace Loyality.Application.Services.Receipt;
 
-public class IReceiptService
+public interface IReceiptService
 {
-    
+    public Task<List<string>> GetReceipt();
 }

@@ -1,6 +1,9 @@
+using Loyality.Domain.Dtos.CampaignCode;
+
 namespace Loyality.Application.Services.CampaignCode;
 
-public class ICampaignCodeService
+public interface ICampaignCodeService
 {
-    
+    Task<List<CampaignCodeDto>> GenerateCode(GenerateCodeRequest request);
+    Task<CampaginCodeValidationResponse> CodeValidation(CampaignCodeValidationRequest request);
 }

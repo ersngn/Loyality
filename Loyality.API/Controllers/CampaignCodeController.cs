@@ -1,12 +1,31 @@
+using Loyality.Application.Services.CampaignCode;
+using Loyality.Domain.Dtos.CampaignCode;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Loyality.API.Controllers;
 
-public class CampaignCodeController : Controller
+[ApiController]
+[Route("api/[controller]")]
+public class CampaignCodeController : ControllerBase
 {
-    // GET
-    public IActionResult Index()
+    private readonly ICampaignCodeService _campaignCodeService;
+
+    public CampaignCodeController(ICampaignCodeService campaignCodeService)
     {
-        return View();
+        _campaignCodeService = campaignCodeService;
     }
+
+    [HttpPost("Generete")]
+    public IActionResult GenereteCode(GenerateCodeRequest request)
+    {
+        return Ok(_campaignCodeService.GenerateCode(request));
+    }
+    
+    [HttpPost("Validate")]
+    public IActionResult ValidateCode(CampaignCodeValidationRequest request)
+    {
+        return Ok(_campaignCodeService.CodeValidation(request));
+    }
+    
+
 }
